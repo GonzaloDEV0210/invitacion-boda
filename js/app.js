@@ -188,6 +188,8 @@ function initFlowerRain() {
   setTimeout(() => container.remove(), 6500);
 }
 
+
+
 /* ==========================================================================
    2. Cuenta Regresiva (Countdown)
    ========================================================================== */
@@ -439,7 +441,7 @@ function initModals() {
 }
 
 /* ==========================================================================
-   6. Formulario RSVP y WhatsApp (Gonzalo y Sayuri)
+   6. Formulario RSVP, Google Sheets & WhatsApp (Gonzalo y Sayuri)
    ========================================================================== */
 function initRsvpForm() {
   const form = document.getElementById("rsvp-form");
@@ -457,6 +459,9 @@ function initRsvpForm() {
   if (!form) return;
 
   const WHATSAPP_PHONE = "51999999999";
+  // URL de la aplicación web de Google Apps Script conectada a Google Sheets:
+  const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbxmFj6MBBhaOf1K2Zzzo2CfolkTCCe6oGNdbvRaqHz3bIMaDxVeHGo6LjCQacJMou3D/exec";
+
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -498,17 +503,27 @@ function initRsvpForm() {
 
     if (hasErrors) return;
 
+    // Guardar automáticamente en Google Sheets (si se configuró la URL)
+    if (GOOGLE_SHEETS_URL) {
+      fetch(GOOGLE_SHEETS_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: nameVal,
+          celular: phoneVal,
+          asistencia: checkVal
+        })
+      }).catch((err) => console.warn("Error enviando a Google Sheets:", err));
+    }
+
     // Mostrar pantalla de éxito
     if (formSection) formSection.style.display = "none";
     if (successSection) successSection.style.display = "block";
-
-    const msg = `¡Hola! Confirmo mi asistencia a la boda de Gonzalo y Sayuri.%0A%0ANombre: ${encodeURIComponent(nameVal)}%0ACelular: ${encodeURIComponent(phoneVal)}%0AAsistiré: Sí`;
-
-    setTimeout(() => {
-      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${msg}`, "_blank", "noopener,noreferrer");
-    }, 900);
   });
 }
+
+
 
 /* ==========================================================================
    7. Copiar al Portapapeles (Datos Bancarios)

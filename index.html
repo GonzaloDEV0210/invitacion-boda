@@ -28,12 +28,29 @@
 
 <body class="locked">
 
+  <!-- Pantalla de Transición Intermedia (fixed, no participa en snap) -->
+  <div id="transition-screen" aria-hidden="true">
+    <div class="transition-inner">
+      <div class="transition-ornament">
+        <span class="ornament-line"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+          class="ornament-diamond">
+          <path
+            d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" />
+        </svg>
+        <span class="ornament-line"></span>
+      </div>
+      <p id="transition-line-1" class="transition-text">¿Estás listo?</p>
+      <p id="transition-line-2" class="transition-text transition-text--script">Comencemos...</p>
+    </div>
+  </div>
+
   <!-- ========================================================================
        1. Sección Principal (Hero) con Foto, Anuncio y Sobre Pequeño
        ======================================================================== -->
   <header class="hero-section">
     <!-- Foto principal de la pareja -->
-    <img src="assets/couple-1.jpg" alt="Gonzalo y Sayuri" width="1024" height="1408" class="hero-bg-img ken-burns" />
+    <img src="assets/fotos novios/_A748484.jpg" alt="Gonzalo y Sayuri" width="1024" height="1408" class="hero-bg-img ken-burns" />
     <div class="hero-scrim"></div>
 
     <!-- ── Ornamentos florales fijos (esquinas) ── -->
@@ -302,7 +319,7 @@
           <!-- Foto izquierda — arco -->
           <div data-reveal="left" class="inner-photo-wrap inner-photo-left">
             <div class="inner-photo-arch">
-              <img src="assets/couple.jpg" alt="Gonzalo y Sayuri" loading="lazy"
+              <img src="assets/fotos novios/_A748551.jpg" alt="Gonzalo y Sayuri" loading="lazy"
                 style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
             </div>
           </div>
@@ -316,7 +333,7 @@
     <div id="floating-music-player" class="music-player-floating">
       <div class="music-floating-inner">
         <div class="music-cover-mini">
-          <img src="assets/couple-3.jpg" alt="Portada" />
+          <img src="assets/fotos novios/_A748384.jpg" alt="Portada" />
         </div>
         <div class="music-info-mini">
           <p class="music-title-mini">Nuestra canción</p>
@@ -349,7 +366,7 @@
 
     <!-- Invitación e Historia -->
     <section class="pacto-section">
-      <img src="assets/couple-2.jpg" alt="Gonzalo y Sayuri" class="pacto-bg-img" />
+      <img src="assets/fotos novios/_A748396.jpg" alt="Gonzalo y Sayuri" class="pacto-bg-img" />
       <div class="pacto-scrim"></div>
       <div class="pacto-card" data-reveal="up">
         <p class="eyebrow" style="color: var(--lilac-deep); letter-spacing:0.38em; font-size:0.68rem;">Nuestra invitación</p>
@@ -404,7 +421,7 @@
 
       <!-- Foto superior en forma de arco con fade elegante -->
       <div class="countdown-photo-top">
-        <img src="assets/couple.jpg" alt="Gonzalo y Sayuri" loading="lazy" class="countdown-photo-img" />
+        <img src="assets/fotos novios/_A748408.jpg" alt="Gonzalo y Sayuri" loading="lazy" class="countdown-photo-img" />
         <div class="countdown-photo-fade"></div>
       </div>
 
@@ -464,7 +481,7 @@
         </div>
 
         <!-- Hora -->
-        <p style="font-family:var(--font-sans); font-size:0.62rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--muted-foreground); margin-top:0.7rem;">2:30 p. m.</p>
+        <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--muted-foreground); margin-top:1rem; font-weight:500;">2:30 p. m.</p>
 
       </div>
 
@@ -473,6 +490,10 @@
 
     <!-- Lugar / Ubicación (Ceremonia y Recepción) -->
     <section class="venue-section text-center">
+
+      <!-- Imagen de fondo premium -->
+      <img src="assets/venue.jpg" alt="Centro de Esparcimiento" class="venue-bg-img ken-burns" loading="lazy" aria-hidden="true" />
+      <div class="venue-bg-scrim"></div>
 
       <!-- Orbes flotantes animados de fondo -->
       <div class="venue-orb venue-orb--1" aria-hidden="true"></div>
@@ -748,110 +769,93 @@
 
 
     <!-- Familia y Acompañantes -->
-    <section class="bg-premium-4 section-padding text-center has-floral">
-      <div class="floral-corner floral-corner--tl" aria-hidden="true"><svg viewBox="0 0 160 160"
-          xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-          <path d="M5 155 C28 115 68 85 98 55 C128 26 148 12 158 5" fill="none" stroke="currentColor" stroke-width="1.3"
-            stroke-linecap="round" />
-          <path d="M48 118 C30 100 34 78 50 68 C64 84 62 106 48 118Z" opacity="0.5" />
-          <path d="M95 62 C108 47 128 50 138 62 C122 70 104 70 95 62Z" opacity="0.5" />
-          <g transform="translate(18 145)">
-            <circle r="9" opacity="0.5" />
-            <path d="M0,0 C-6,-9 -5,-18 0,-18 C5,-18 6,-9 0,0" opacity="0.6" />
-            <circle r="3" opacity="0.8" />
-          </g>
-          <g transform="translate(155 10)">
-            <circle r="8" opacity="0.5" />
-            <path d="M0,0 C-5,-8 -5,-16 0,-16 C5,-16 5,-8 0,0" opacity="0.6" />
-            <circle r="2.5" opacity="0.8" />
-          </g>
-        </svg></div>
-      <div class="floral-corner floral-corner--tr" aria-hidden="true"><svg viewBox="0 0 160 160"
-          xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-          <path d="M5 155 C28 115 68 85 98 55 C128 26 148 12 158 5" fill="none" stroke="currentColor" stroke-width="1.3"
-            stroke-linecap="round" />
-          <path d="M48 118 C30 100 34 78 50 68 C64 84 62 106 48 118Z" opacity="0.5" />
-          <g transform="translate(18 145)">
-            <circle r="9" opacity="0.5" />
-            <path d="M0,0 C-6,-9 -5,-18 0,-18 C5,-18 6,-9 0,0" opacity="0.6" />
-            <circle r="3" opacity="0.8" />
-          </g>
-        </svg></div>
-      <div class="container-medium">
-        <h2 data-reveal="up" style="font-size: 2.25rem;">Con la bendición de</h2>
+    <section class="family-section text-center">
 
-        <div class="family-grid">
-          <!-- Padres del novio -->
-          <div data-reveal="up">
-            <p class="eyebrow" style="font-size: 0.55rem;">Padres del novio</p>
-            <div
-              style="margin: 0.75rem auto 0; height: 1px; width: 2rem; background-color: var(--lilac); opacity: 0.5;">
-            </div>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.5rem; font-size: 1.25rem;">Jorge Palma Salas
-            </p>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.25rem; font-size: 1.25rem;">Rosa Rosas de Palma
-            </p>
+      <!-- Imagen de fondo dramática -->
+      <img src="assets/fotos novios/_A748415.jpg" alt="" class="family-bg-img" loading="lazy" aria-hidden="true" />
+      <div class="family-bg-scrim"></div>
+
+      <!-- Foto superior con difuminado -->
+      <div class="family-photo-strip family-photo-strip--top" aria-hidden="true">
+        <img src="assets/fotos novios/_A748408.jpg" loading="lazy" alt="">
+      </div>
+
+      <div class="family-content">
+
+
+        <!-- Cabecera -->
+        <div class="family-header text-center" data-reveal="up" style="margin-bottom: 1.5rem;">
+          <p style="font-family: var(--font-sans); font-size: 0.7rem; color: var(--lilac-deep); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">Con la bendición de Dios y de nuestros padres</p>
+        </div>
+
+        <!-- Grid 2x2 padres -->
+        <div class="family-parents" data-reveal="up">
+          <div class="family-col">
+            <p class="family-label">Padres del novio</p>
+            <p class="family-name">Hernán Wilfredo Palma Mendoza</p>
+            <p class="family-name">Marleny Rosas Santi</p>
           </div>
-
-          <!-- Padres de la novia -->
-          <div data-reveal="up" style="transition-delay: 100ms;">
-            <p class="eyebrow" style="font-size: 0.55rem;">Padres de la novia</p>
-            <div
-              style="margin: 0.75rem auto 0; height: 1px; width: 2rem; background-color: var(--lilac); opacity: 0.5;">
-            </div>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.5rem; font-size: 1.25rem;">Carlos Ramírez Vega
-            </p>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.25rem; font-size: 1.25rem;">Elena Torres de
-              Ramírez</p>
-          </div>
-
-          <!-- Padrinos -->
-          <div data-reveal="up" style="transition-delay: 200ms;">
-            <p class="eyebrow" style="font-size: 0.55rem;">Padrinos</p>
-            <div
-              style="margin: 0.75rem auto 0; height: 1px; width: 2rem; background-color: var(--lilac); opacity: 0.5;">
-            </div>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.5rem; font-size: 1.25rem;">Aurelio Pastor &amp;
-              Lucinda Huamán</p>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.25rem; font-size: 1.25rem;">Alberto Centeno
-              &amp; Juanita Asencios</p>
-          </div>
-
-          <!-- Testigos civiles -->
-          <div data-reveal="up" style="transition-delay: 300ms;">
-            <p class="eyebrow" style="font-size: 0.55rem;">Testigos civiles</p>
-            <div
-              style="margin: 0.75rem auto 0; height: 1px; width: 2rem; background-color: var(--lilac); opacity: 0.5;">
-            </div>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.5rem; font-size: 1.25rem;">Germán Canasa</p>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.25rem; font-size: 1.25rem;">Miriam Méndez</p>
-          </div>
-
-          <!-- Pastores -->
-          <div data-reveal="up" style="transition-delay: 400ms;">
-            <p class="eyebrow" style="font-size: 0.55rem;">Pastores</p>
-            <div
-              style="margin: 0.75rem auto 0; height: 1px; width: 2rem; background-color: var(--lilac); opacity: 0.5;">
-            </div>
-            <p class="font-display text-lilac-deep" style="margin-top: 0.5rem; font-size: 1.25rem;">Iván Galarza &amp;
-              Luz Navarro</p>
+          <div class="family-vline" aria-hidden="true"></div>
+          <div class="family-col">
+            <p class="family-label">Padres de la novia</p>
+            <p class="family-name">Richard Vicente Alvarado</p>
+            <p class="family-name">Regula Caruz Aguilar</p>
           </div>
         </div>
+
+        <!-- Separador ornamental -->
+        <div class="family-ornament-line" aria-hidden="true">
+          <span></span><span class="family-diamond">◆</span><span></span>
+        </div>
+
+        <!-- Padrinos -->
+        <div class="family-group" data-reveal="up">
+          <p class="family-label">Padrinos</p>
+          <p class="family-name">Aurelio Pastor &amp; Lucinda Huamán</p>
+          <p class="family-name">Alberto Centeno &amp; Juanita Asencios</p>
+        </div>
+
+        <!-- Separador ornamental -->
+        <div class="family-ornament-line" aria-hidden="true">
+          <span></span><span class="family-diamond">◆</span><span></span>
+        </div>
+
+        <!-- Testigos y Pastores -->
+        <div class="family-parents" data-reveal="up">
+          <div class="family-col">
+            <p class="family-label">Testigos civiles</p>
+            <p class="family-name">Germán Canasa</p>
+            <p class="family-name">Miriam Méndez</p>
+          </div>
+          <div class="family-vline" aria-hidden="true"></div>
+          <div class="family-col">
+            <p class="family-label">Pastores</p>
+            <p class="family-name">Iván Galarza &amp; Luz Navarro</p>
+          </div>
+        </div>
+
       </div>
+
+      <!-- Foto inferior con difuminado -->
+      <div class="family-photo-strip family-photo-strip--bottom" aria-hidden="true">
+        <img src="assets/fotos novios/_A748427.jpg" loading="lazy" alt="">
+      </div>
+
     </section>
+
 
     <!-- Dress Code -->
     <section class="dresscode-section">
       <!-- Background Image & Veil -->
-      <img src="assets/couple-4.jpg" alt="" class="dc-bg-img" aria-hidden="true" loading="lazy"/>
+      <img src="assets/fotos novios/_A748502.jpg" alt="" class="dc-bg-img" aria-hidden="true" loading="lazy"/>
       <div class="dc-bg-veil" aria-hidden="true"></div>
 
       <div class="dc-inner container-narrow text-center" data-reveal="up">
-        <p class="itin-eyebrow">Dress Code</p>
-        <h2 class="itin-title" style="font-family: var(--font-display); font-size: 3rem; margin-bottom: 0.5rem;">Elegante</h2>
+        <p class="itin-eyebrow" style="font-size: 1.1rem;">Dress Code</p>
+        <h2 class="itin-title" style="font-family: var(--font-display); font-size: 2.8rem; margin-bottom: 0.5rem;">Elegante</h2>
         <p class="dc-intro">
-          Nos encantaría que nos acompañes con tu mejor traje formal.<br>
-          <span style="font-weight:600; color:var(--lilac-deep); display:block; margin-top:0.5rem;">Para mantener la armonía, estos colores están reservados exclusivamente para la novia:</span>
+          Acompáñanos con tu mejor traje formal.<br>
+          <span style="font-weight:600; color:var(--lilac-deep); display:block; margin-top:0.5rem;">Por favor, reserva estos colores para la novia:</span>
         </p>
 
         <div class="dc-palette">
@@ -873,22 +877,14 @@
             </div>
             <p>Beige</p>
           </div>
-          <div class="dc-color">
-            <div class="dc-swatch" style="background-color: #c89ecb;">
-              <svg class="dc-slash" viewBox="0 0 100 100"><line x1="25" y1="75" x2="75" y2="25" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
-            </div>
-            <p>Lila</p>
-          </div>
         </div>
-
-        <p class="dc-thankyou">¡Gracias por tu comprensión!</p>
       </div>
     </section>
 
     <!-- Regalos y Bendiciones -->
     <section class="regalos-section">
       <!-- Background Image & Veil -->
-      <img src="assets/couple-3.jpg" alt="" class="regalos-bg-img" aria-hidden="true" loading="lazy"/>
+      <img src="assets/fotos novios/_A748468.jpg" alt="" class="regalos-bg-img" aria-hidden="true" loading="lazy"/>
       <div class="regalos-bg-veil" aria-hidden="true"></div>
 
       <div class="regalos-inner text-center" data-reveal="up">
@@ -922,33 +918,46 @@
     </section>
 
     <!-- Confirmación de Asistencia (RSVP) -->
-    <section class="bg-premium-1 section-padding text-center">
-      <div class="container-narrow">
-        <h2 data-reveal="up" style="font-size: 2.5rem;">Confirma tu asistencia</h2>
-        <p data-reveal="up" style="transition-delay: 120ms; margin-top: 0.75rem; font-size: 0.875rem;"
-          class="text-muted">
-          Antes del 10 de septiembre 2026.
-        </p>
+    <section class="rsvp-section text-center">
+      <!-- Imagen de fondo dramática con transparencia -->
+      <img src="assets/fotos novios/_A748475.jpg" alt="" class="rsvp-bg-img" loading="lazy" aria-hidden="true" />
+      <div class="rsvp-bg-scrim"></div>
 
-        <div data-reveal="zoom" style="transition-delay: 200ms; margin-top: 1.75rem;">
-          <button type="button" class="btn-primary" data-modal-target="modal-rsvp">
+      <div class="rsvp-content" data-reveal="up">
+        <p class="rsvp-eyebrow">Reserva tu lugar</p>
+        <h2 class="rsvp-title">Confirma tu Asistencia</h2>
+        <div class="rsvp-title-line" aria-hidden="true"></div>
+        <p class="rsvp-subtitle">Por favor confirma tu presencia antes del<br><strong>10 de septiembre de 2026</strong></p>
+
+        <div class="rsvp-btn-wrap">
+          <button type="button" class="btn-primary rsvp-trigger-btn" data-modal-target="modal-rsvp">
             <span class="btn-hover-bg"></span>
-            <span class="btn-content">Confirmar asistencia</span>
+            <span class="btn-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              Confirmar asistencia
+            </span>
           </button>
         </div>
       </div>
     </section>
 
+
+
     <!-- Cierre / Despedida -->
-    <section class="hero-section" style="height: 70vh; min-height: 70vh;">
-      <img src="assets/couple-4.jpg" alt="Gonzalo y Sayuri al atardecer" width="1408" height="1024" loading="lazy"
-        class="hero-bg-img ken-burns" />
-      <div class="hero-scrim"></div>
-      <div data-reveal="blur" class="hero-content">
-        <p class="script-name text-lilac-deep" style="font-size: 3.5rem;">Gracias por ser parte</p>
-        <p class="eyebrow" style="margin-top: 1.25rem; font-size: 0.75rem;">Gonzalo y Sayuri · 10.10.2026</p>
+    <section class="cierre-section text-center">
+      <img src="assets/fotos novios/_A748484.jpg" alt="Gonzalo y Sayuri" width="1408" height="1024" loading="lazy"
+        class="cierre-bg-img ken-burns" />
+      <div class="cierre-scrim"></div>
+      <div data-reveal="blur" class="cierre-content">
+        <p class="cierre-title">Gracias por ser parte</p>
+        <div class="cierre-line" aria-hidden="true"></div>
+        <p class="cierre-eyebrow">Gonzalo &amp; Sayuri · 10.10.2026</p>
       </div>
     </section>
+
   </main>
 
   <!-- ========================================================================
@@ -957,7 +966,7 @@
 
   <!-- Modal RSVP -->
   <div id="modal-rsvp" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="rsvp-title">
-    <div class="modal-dialog">
+    <div class="modal-dialog text-center">
       <button type="button" class="modal-close-btn" data-modal-close aria-label="Cerrar modal">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -968,48 +977,45 @@
 
       <!-- Vista de Formulario -->
       <div id="rsvp-form-container">
-        <h3 id="rsvp-title" class="font-display" style="font-size: 1.875rem;">Confirma tu asistencia</h3>
-        <p class="text-muted" style="margin-top: 0.375rem; font-size: 0.8rem;">
-          Completa los datos y nos llegará tu confirmación por WhatsApp. Todos los campos son obligatorios.
+        <h3 id="rsvp-title" class="modal-title">Confirma tu asistencia</h3>
+        <div class="modal-title-line" aria-hidden="true"></div>
+        <p class="modal-subtitle">
+          Completa tus datos para registrar tu asistencia.
         </p>
 
-        <form id="rsvp-form" style="margin-top: 1.25rem;" novalidate>
+        <form id="rsvp-form" class="modal-form" novalidate>
           <!-- Nombres -->
-          <div style="margin-bottom: 1.25rem;">
-            <label for="rsvp-nombre" class="eyebrow" style="font-size: 0.6rem; display: block;">Nombres y
-              apellidos</label>
-            <input type="text" id="rsvp-nombre" class="form-field" placeholder="Ej. María Fernanda Rojas Díaz"
+          <div class="form-group text-left">
+            <label for="rsvp-nombre" class="form-label">Nombres y Apellidos</label>
+            <input type="text" id="rsvp-nombre" class="form-field" placeholder="Ej. María Fernanda Rojas"
               maxlength="100" />
-            <p id="error-name" class="text-destructive" style="font-size: 0.75rem; margin-top: 0.375rem;"></p>
+            <p id="error-name" class="text-destructive form-error"></p>
           </div>
 
           <!-- Celular -->
-          <div style="margin-bottom: 1.25rem;">
-            <label for="rsvp-tel" class="eyebrow" style="font-size: 0.6rem; display: block;">Número de celular</label>
+          <div class="form-group text-left">
+            <label for="rsvp-tel" class="form-label">Número de Celular</label>
             <input type="tel" id="rsvp-tel" class="form-field" placeholder="Ej. 999 888 777" maxlength="20"
               inputmode="tel" />
-            <p id="error-phone" class="text-destructive" style="font-size: 0.75rem; margin-top: 0.375rem;"></p>
+            <p id="error-phone" class="text-destructive form-error"></p>
           </div>
 
           <!-- Checkbox -->
-          <div style="margin-bottom: 1.5rem;">
-            <label for="rsvp-check"
-              style="display: flex; cursor: pointer; align-items: center; gap: 0.75rem; border-radius: var(--radius); border: 1px solid var(--border); background-color: var(--card); padding: 0.875rem 1rem; transition: border-color 0.3s;">
-              <input type="checkbox" id="rsvp-check"
-                style="height: 1.1rem; width: 1.1rem; accent-color: var(--lilac-deep);" />
-              <span style="font-size: 0.875rem;">Confirmo que asistiré a la boda</span>
+          <div class="form-group">
+            <label for="rsvp-check" class="form-checkbox-card">
+              <input type="checkbox" id="rsvp-check" class="custom-checkbox" />
+              <span class="checkbox-text">¡Sí, confirmo que asistiré a la boda! ✨</span>
             </label>
-            <p id="error-check" class="text-destructive" style="font-size: 0.75rem; margin-top: 0.375rem;"></p>
+            <p id="error-check" class="text-destructive form-error"></p>
           </div>
 
           <!-- Botón Enviar -->
-          <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem;">
+          <button type="submit" class="btn-primary modal-submit-btn">
             <span class="btn-hover-bg"></span>
             <span class="btn-content">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
               </svg>
               Enviar confirmación
             </span>
@@ -1018,17 +1024,16 @@
       </div>
 
       <!-- Vista de Éxito -->
-      <div id="rsvp-success-container" style="display: none; padding: 2rem 0; text-align: center;">
-        <span
-          style="display: flex; margin: 0 auto; height: 4rem; width: 4rem; align-items: center; justify-content: center; border-radius: 9999px; background-color: var(--lilac-soft); color: var(--lilac-deep);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+      <div id="rsvp-success-container" class="modal-success-view" style="display: none;">
+        <span class="success-icon-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 6 9 17l-5-5" />
           </svg>
         </span>
-        <p class="script text-lilac-deep" style="font-size: 2.25rem; margin-top: 1.25rem;">¡Gracias!</p>
-        <p class="text-muted" style="margin-top: 0.5rem; font-size: 0.875rem;">
-          Tu confirmación se está enviando por WhatsApp. Te esperamos con mucho cariño.
+        <p class="modal-title script" style="margin-top: 1rem;">¡Gracias por confirmar!</p>
+        <p class="modal-subtitle" style="margin-top: 0.5rem;">
+          Tu confirmación ha sido registrada con éxito. ¡Nos vemos muy pronto en la boda!
         </p>
       </div>
     </div>
@@ -1036,7 +1041,7 @@
 
   <!-- Modal Regalos / Cuentas Bancarias -->
   <div id="modal-gifts" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="gifts-title">
-    <div class="modal-dialog">
+    <div class="modal-dialog text-center">
       <button type="button" class="modal-close-btn" data-modal-close aria-label="Cerrar modal">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1045,63 +1050,57 @@
         </svg>
       </button>
 
-      <h3 id="gifts-title" class="font-display" style="font-size: 1.875rem;">Sugerencias de regalo</h3>
-      <p class="text-muted" style="margin-top: 0.375rem; font-size: 0.8rem;">
-        Tu presencia es nuestro mayor regalo. Si deseas bendecirnos, aquí están nuestros datos.
+      <h3 id="gifts-title" class="modal-title">Sugerencias de Regalo</h3>
+      <div class="modal-title-line" aria-hidden="true"></div>
+      <p class="modal-subtitle">
+        Tu presencia es nuestro mayor regalo. Si deseas hacernos un detalle, te dejamos nuestras cuentas:
       </p>
 
       <!-- Lista de Bancos -->
-      <div style="margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+      <div class="bank-cards-list">
 
         <!-- BCP -->
-        <div
-          style="border-radius: var(--radius); border: 1px solid var(--border); background-color: var(--card); padding: 1rem 1.25rem;">
-          <div style="display: flex; align-items: baseline; justify-content: space-between;">
-            <p class="script text-lilac-deep" style="font-size: 1.5rem;">BCP</p>
-            <p class="eyebrow" style="font-size: 0.55rem; letter-spacing: 0.2em;">Cuenta en soles</p>
+        <div class="bank-card text-left">
+          <div class="bank-card-header">
+            <p class="bank-name">BCP</p>
+            <span class="bank-badge">Cuenta Ahorro Soles</span>
           </div>
-          <p class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem;">Sayuri Ramírez</p>
+          <p class="bank-holder">Titular: Sayuri Vicente Caruz</p>
 
           <!-- Nro de Cuenta -->
-          <div
-            style="margin-top: 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
-            <div style="min-width: 0;">
-              <p class="eyebrow" style="font-size: 0.55rem;">Nro. de cuenta</p>
-              <p class="font-display text-lilac-deep" style="font-size: 1.2rem; margin-top: 0.125rem;">194-12345678-0-99
-              </p>
+          <div class="bank-row">
+            <div class="bank-data">
+              <span class="bank-field-label">N° de cuenta BCP</span>
+              <p class="bank-field-value">19178935790018</p>
             </div>
-            <button type="button" class="copy-btn" data-copy="194-12345678-0-99"
-              aria-label="Copiar número de cuenta BCP">
+            <button type="button" class="copy-btn" data-copy="19178935790018"
+              aria-label="Copiar número de cuenta BCP" title="Copiar cuenta">
               <svg class="icon-copy" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
                 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
               </svg>
               <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                style="display: none; color: var(--lilac-deep);">
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 6 9 17l-5-5" />
               </svg>
             </button>
           </div>
 
           <!-- CCI -->
-          <div
-            style="margin-top: 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
-            <div style="min-width: 0;">
-              <p class="eyebrow" style="font-size: 0.55rem;">CCI</p>
-              <p class="font-display text-lilac-deep" style="font-size: 1.2rem; margin-top: 0.125rem;">
-                002-194-001234567890-99</p>
+          <div class="bank-row">
+            <div class="bank-data">
+              <span class="bank-field-label">Código CCI</span>
+              <p class="bank-field-value">00219117893579001859</p>
             </div>
-            <button type="button" class="copy-btn" data-copy="002-194-001234567890-99" aria-label="Copiar CCI BCP">
+            <button type="button" class="copy-btn" data-copy="00219117893579001859" aria-label="Copiar CCI BCP" title="Copiar CCI">
               <svg class="icon-copy" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
                 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
               </svg>
               <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                style="display: none; color: var(--lilac-deep);">
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 6 9 17l-5-5" />
               </svg>
             </button>
@@ -1109,54 +1108,48 @@
         </div>
 
         <!-- Scotiabank -->
-        <div
-          style="border-radius: var(--radius); border: 1px solid var(--border); background-color: var(--card); padding: 1rem 1.25rem;">
-          <div style="display: flex; align-items: baseline; justify-content: space-between;">
-            <p class="script text-lilac-deep" style="font-size: 1.5rem;">Scotiabank</p>
-            <p class="eyebrow" style="font-size: 0.55rem; letter-spacing: 0.2em;">Cuenta en soles</p>
+        <div class="bank-card text-left">
+          <div class="bank-card-header">
+            <p class="bank-name">Scotiabank</p>
+            <span class="bank-badge">Cuenta Ahorro Soles</span>
           </div>
-          <p class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem;">Gonzalo Palma</p>
+          <p class="bank-holder">Titular: Gonzalo Palma Rosas</p>
 
           <!-- Nro de Cuenta -->
-          <div
-            style="margin-top: 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
-            <div style="min-width: 0;">
-              <p class="eyebrow" style="font-size: 0.55rem;">Nro. de cuenta</p>
-              <p class="font-display text-lilac-deep" style="font-size: 1.2rem; margin-top: 0.125rem;">000-1234567</p>
+          <div class="bank-row">
+            <div class="bank-data">
+              <span class="bank-field-label">N° de cuenta</span>
+              <p class="bank-field-value">0217758325</p>
             </div>
-            <button type="button" class="copy-btn" data-copy="000-1234567"
-              aria-label="Copiar número de cuenta Scotiabank">
+            <button type="button" class="copy-btn" data-copy="0217758325"
+              aria-label="Copiar número de cuenta Scotiabank" title="Copiar cuenta">
               <svg class="icon-copy" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
                 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
               </svg>
               <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                style="display: none; color: var(--lilac-deep);">
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 6 9 17l-5-5" />
               </svg>
             </button>
           </div>
 
           <!-- CCI -->
-          <div
-            style="margin-top: 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
-            <div style="min-width: 0;">
-              <p class="eyebrow" style="font-size: 0.55rem;">CCI</p>
-              <p class="font-display text-lilac-deep" style="font-size: 1.2rem; margin-top: 0.125rem;">
-                009-123-000001234567-89</p>
+          <div class="bank-row">
+            <div class="bank-data">
+              <span class="bank-field-label">Código CCI</span>
+              <p class="bank-field-value">00902020021775832593</p>
             </div>
-            <button type="button" class="copy-btn" data-copy="009-123-000001234567-89"
-              aria-label="Copiar CCI Scotiabank">
+            <button type="button" class="copy-btn" data-copy="00902020021775832593"
+              aria-label="Copiar CCI Scotiabank" title="Copiar CCI">
               <svg class="icon-copy" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
                 <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
               </svg>
               <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                style="display: none; color: var(--lilac-deep);">
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 6 9 17l-5-5" />
               </svg>
             </button>
@@ -1164,41 +1157,23 @@
         </div>
       </div>
 
-      <!-- Billeteras Digitales (Yape / Plin) -->
-      <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-        <!-- Yape -->
-        <div
-          style="border-radius: var(--radius); border: 1px solid var(--border); background-color: var(--card); padding: 1rem; text-align: center;">
-          <p class="eyebrow" style="font-size: 0.55rem;">Yape</p>
-          <div
-            style="margin: 0.75rem auto 0; display: flex; aspect-ratio: 1/1; width: 100%; max-width: 8rem; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius); border: 1px dashed color-mix(in oklab, var(--lilac) 60%, transparent); background-color: color-mix(in oklab, var(--lilac-soft) 40%, transparent);">
-            <img src="assets/qr-yape.png" alt="Código QR de Yape" loading="lazy"
-              style="height: 100%; width: 100%; object-fit: contain; padding: 0.5rem;"
-              onerror="this.style.display='none';" />
+      <!-- Billetera Digital (Plin) -->
+      <div class="wallet-single-wrap">
+        <div class="wallet-card">
+          <div class="wallet-card-header">
+            <p class="wallet-name">Código QR · Plin</p>
+            <span class="wallet-holder-badge">Gonzalo Palma</span>
           </div>
-          <p class="font-display text-lilac-deep" style="font-size: 1.15rem; margin-top: 0.75rem;">999 888 777</p>
-        </div>
-
-        <!-- Plin -->
-        <div
-          style="border-radius: var(--radius); border: 1px solid var(--border); background-color: var(--card); padding: 1rem; text-align: center;">
-          <p class="eyebrow" style="font-size: 0.55rem;">Plin</p>
-          <div
-            style="margin: 0.75rem auto 0; display: flex; aspect-ratio: 1/1; width: 100%; max-width: 8rem; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius); border: 1px dashed color-mix(in oklab, var(--lilac) 60%, transparent); background-color: color-mix(in oklab, var(--lilac-soft) 40%, transparent);">
-            <img src="assets/qr-plin.png" alt="Código QR de Plin" loading="lazy"
-              style="height: 100%; width: 100%; object-fit: contain; padding: 0.5rem;"
-              onerror="this.style.display='none';" />
+          <div class="qr-container">
+            <img src="assets/regalos/plin gonzalo.jpeg" alt="Código QR Plin - Gonzalo Palma" loading="lazy" />
           </div>
-          <p class="font-display text-lilac-deep" style="font-size: 1.15rem; margin-top: 0.75rem;">987 654 321</p>
         </div>
       </div>
 
-      <p class="text-muted text-center" style="margin-top: 0.75rem; font-size: 0.65rem; line-height: 1.5;">
-        Datos de ejemplo · reemplázalos por los reales. Puedes colocar tus códigos QR como <code>qr-yape.png</code> y
-        <code>qr-plin.png</code> en la carpeta <code>assets/</code>.
-      </p>
+
     </div>
   </div>
+
 
   <!-- Scripts -->
   <script src="js/app.js"></script>
