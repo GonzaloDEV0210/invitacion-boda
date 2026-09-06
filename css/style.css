@@ -827,11 +827,11 @@ h4 {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.4) 0%,
-      color-mix(in oklab, var(--lilac-soft) 40%, rgba(255, 255, 255, 0.3)) 40%,
-      color-mix(in oklab, var(--lilac-soft) 60%, rgba(255, 255, 255, 0.45)) 100%);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+      rgba(255, 255, 255, 0.65) 0%,
+      color-mix(in oklab, var(--lilac-soft) 50%, rgba(255, 255, 255, 0.6)) 40%,
+      color-mix(in oklab, var(--lilac-soft) 70%, rgba(255, 255, 255, 0.75)) 100%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 1;
 }
 
@@ -1009,6 +1009,45 @@ h4 {
   text-transform: uppercase;
   opacity: 0.8;
   letter-spacing: 0.1em;
+}
+
+/* ── Foto horizontal itinerario ── */
+.itin-photo-strip {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  margin: 0.6rem auto 0.6rem;
+  height: 130px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px color-mix(in oklab, var(--lilac) 30%, transparent);
+}
+
+.itin-photo-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  border-radius: 16px;
+}
+
+.itin-photo-strip-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  pointer-events: none;
+}
+
+.itin-photo-strip-fade--l {
+  left: 0;
+  background: linear-gradient(to right, var(--background), transparent);
+}
+
+.itin-photo-strip-fade--r {
+  right: 0;
+  background: linear-gradient(to left, var(--background), transparent);
 }
 
 .bg-premium-3 {
