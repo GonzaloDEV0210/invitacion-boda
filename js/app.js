@@ -238,26 +238,16 @@ function initMusicPlayer() {
   const audio = document.getElementById("wedding-audio");
   const playBtn = document.getElementById("btn-play-pause");
   const playerCard = document.querySelector(".music-player-floating");
-  const progressBarWrap = document.getElementById("progress-bar-wrap");
-  const progressBarFill = document.getElementById("progress-bar-fill");
-  const currentTimeEl = document.getElementById("current-time");
-  const totalDurationEl = document.getElementById("total-duration");
-  const playerStatusEl = document.getElementById("player-status");
+  const ringFill = document.getElementById("music-ring-fill");
   const iconPlay = document.getElementById("icon-play");
   const iconPause = document.getElementById("icon-pause");
 
   if (!audio || !playBtn) return;
 
+  const CIRCUMFERENCE = 2 * Math.PI * 25; // ≈ 157
   const TARGET_VOLUME = 0.55;
   let fadeTimer = null;
   let isPlaying = false;
-
-  const formatTime = (seconds) => {
-    if (isNaN(seconds) || seconds === null) return "--:--";
-    const m = Math.floor(seconds / 60);
-    const s = Math.floor(seconds % 60);
-    return `${m}:${String(s).padStart(2, "0")}`;
-  };
 
   const fadeIn = () => {
     if (fadeTimer) clearInterval(fadeTimer);
@@ -275,18 +265,11 @@ function initMusicPlayer() {
   const setPlayState = (playing) => {
     isPlaying = playing;
     if (playerCard) {
-      if (playing) {
-        playerCard.classList.add("playing");
-      } else {
-        playerCard.classList.remove("playing");
-      }
+      playerCard.classList.toggle("playing", playing);
     }
     if (iconPlay && iconPause) {
       iconPlay.style.display = playing ? "none" : "block";
       iconPause.style.display = playing ? "block" : "none";
-    }
-    if (playerStatusEl) {
-      playerStatusEl.textContent = playing ? "Sonando ahora" : "Reproducir";
     }
   };
 
@@ -304,39 +287,26 @@ function initMusicPlayer() {
     } catch (err) {
       console.warn("Reproducción no disponible o bloqueada por el navegador:", err);
       setPlayState(false);
-      if (playerStatusEl) playerStatusEl.textContent = "Canción no disponible";
     }
   };
 
   playBtn.addEventListener("click", toggle);
 
+  // Actualiza el anillo de progreso SVG
   audio.addEventListener("timeupdate", () => {
     const cur = audio.currentTime || 0;
     const dur = audio.duration || 0;
-    if (currentTimeEl) currentTimeEl.textContent = formatTime(cur);
-    if (progressBarFill && dur > 0) {
-      const pct = (cur / dur) * 100;
-      progressBarFill.style.width = `${pct}%`;
+    if (ringFill && dur > 0) {
+      const progress = cur / dur;
+      const offset = CIRCUMFERENCE * (1 - progress);
+      ringFill.style.strokeDashoffset = offset;
     }
-  });
-
-  audio.addEventListener("loadedmetadata", () => {
-    if (totalDurationEl) totalDurationEl.textContent = formatTime(audio.duration);
   });
 
   audio.addEventListener("ended", () => {
     setPlayState(false);
+    if (ringFill) ringFill.style.strokeDashoffset = CIRCUMFERENCE;
   });
-
-  if (progressBarWrap) {
-    progressBarWrap.addEventListener("click", (e) => {
-      const rect = progressBarWrap.getBoundingClientRect();
-      const pos = (e.clientX - rect.left) / rect.width;
-      if (audio.duration) {
-        audio.currentTime = pos * audio.duration;
-      }
-    });
-  }
 
   // Exportar para que la apertura del sobre pueda activarlo
   window.weddingMusic = {
@@ -353,6 +323,7 @@ function initMusicPlayer() {
     }
   };
 }
+
 
 /* ==========================================================================
    4. Animaciones al hacer Scroll (IntersectionObserver)
@@ -446,11 +417,15 @@ function initModals() {
 function initRsvpForm() {
   const form = document.getElementById("rsvp-form");
   const nameInput = document.getElementById("rsvp-nombre");
-  const phoneInput = document.getElementById("rsvp-tel");
-  const checkInput = document.getElementById("rsvp-check");
+  
+  const rsvpYes = document.getElementById("rsvp-yes");
+  const rsvpNo = document.getElementById("rsvp-no");
+  const messageInput = document.getElementById("rsvp-message");
+  
+  const btnAddCompanion = document.getElementById("btn-add-companion");
+  const companionsContainer = document.getElementById("companions-container");
 
   const errName = document.getElementById("error-name");
-  const errPhone = document.getElementById("error-phone");
   const errCheck = document.getElementById("error-check");
 
   const formSection = document.getElementById("rsvp-form-container");
@@ -458,9 +433,57 @@ function initRsvpForm() {
 
   if (!form) return;
 
-  const WHATSAPP_PHONE = "51999999999";
-  // URL de la aplicación web de Google Apps Script conectada a Google Sheets:
-  const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbxmFj6MBBhaOf1K2Zzzo2CfolkTCCe6oGNdbvRaqHz3bIMaDxVeHGo6LjCQacJMou3D/exec";
+  const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbzNTX_Ze7AyTfxBLjYY9XZCcYF4pJIg7SAfCAyQkpeghH2DbW_noqOJF7wTh4dCE03C/exec";
+
+  // Lógica para agregar acompañantes dinámicos
+  if (btnAddCompanion && companionsContainer) {
+    btnAddCompanion.addEventListener("click", () => {
+      const group = document.createElement("div");
+      group.className = "companion-input-group";
+      
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "form-field companion-input";
+      input.placeholder = "Nombre del acompañante";
+      input.maxLength = 100;
+
+      const btnRemove = document.createElement("button");
+      btnRemove.type = "button";
+      btnRemove.className = "btn-remove-companion";
+      btnRemove.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`;
+      
+      btnRemove.addEventListener("click", () => {
+        group.remove();
+      });
+
+      group.appendChild(input);
+      group.appendChild(btnRemove);
+      companionsContainer.appendChild(group);
+      
+      // Auto-focus on new input
+      setTimeout(() => input.focus(), 10);
+    });
+  }
+
+  // Activar estilo visual en botones pill + ocultar acompañantes si "No"
+  const syncAttendanceBtns = () => {
+    const btnYesLabel = document.querySelector('label.attendance-btn--yes');
+    const btnNoLabel  = document.querySelector('label.attendance-btn--no');
+    if (btnYesLabel) btnYesLabel.classList.toggle('active', rsvpYes && rsvpYes.checked);
+    if (btnNoLabel)  btnNoLabel.classList.toggle('active',  rsvpNo  && rsvpNo.checked);
+
+    // Mostrar/ocultar acompañantes
+    if (rsvpNo && rsvpNo.checked) {
+      if (btnAddCompanion) btnAddCompanion.parentElement.style.display = 'none';
+      if (companionsContainer) companionsContainer.style.display = 'none';
+    } else {
+      if (btnAddCompanion) btnAddCompanion.parentElement.style.display = 'block';
+      if (companionsContainer) companionsContainer.style.display = 'block';
+    }
+  };
+
+  if (rsvpYes) rsvpYes.addEventListener("change", syncAttendanceBtns);
+  if (rsvpNo)  rsvpNo.addEventListener("change",  syncAttendanceBtns);
 
 
   form.addEventListener("submit", (e) => {
@@ -470,12 +493,22 @@ function initRsvpForm() {
 
     // Reset errors
     if (errName) errName.textContent = "";
-    if (errPhone) errPhone.textContent = "";
     if (errCheck) errCheck.textContent = "";
 
     const nameVal = nameInput ? nameInput.value.trim() : "";
-    const phoneVal = phoneInput ? phoneInput.value.trim() : "";
-    const checkVal = checkInput ? checkInput.checked : false;
+    
+    // Obtener nombres de acompañantes
+    const companionInputs = document.querySelectorAll(".companion-input");
+    const companionsList = [];
+    companionInputs.forEach(input => {
+      if (input.value.trim() !== "") {
+        companionsList.push(input.value.trim());
+      }
+    });
+    const companionsStr = companionsList.join(", ");
+
+    const attendanceVal = (rsvpYes && rsvpYes.checked) ? "Sí" : ((rsvpNo && rsvpNo.checked) ? "No" : null);
+    const messageVal = messageInput ? messageInput.value.trim() : "";
 
     if (!nameVal) {
       if (errName) errName.textContent = "Ingresa tus nombres y apellidos";
@@ -488,38 +521,49 @@ function initRsvpForm() {
       hasErrors = true;
     }
 
-    if (!phoneVal) {
-      if (errPhone) errPhone.textContent = "Ingresa tu número de celular";
-      hasErrors = true;
-    } else if (!/^[0-9+\s()-]{7,20}$/.test(phoneVal)) {
-      if (errPhone) errPhone.textContent = "Número no válido";
-      hasErrors = true;
-    }
-
-    if (!checkVal) {
-      if (errCheck) errCheck.textContent = "Debes marcar la confirmación";
+    if (!attendanceVal) {
+      if (errCheck) errCheck.textContent = "Debes seleccionar una opción de asistencia";
       hasErrors = true;
     }
 
     if (hasErrors) return;
 
-    // Guardar automáticamente en Google Sheets (si se configuró la URL)
+    // Cambiar texto de botón para mostrar loading
+    const submitBtn = form.querySelector('.modal-submit-btn .btn-content');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.innerHTML = "Enviando...";
+    }
+
+    // Guardar automáticamente en Google Sheets
+    // NOTA: Con mode:"no-cors" solo funciona application/x-www-form-urlencoded.
+    // Enviamos el payload completo como JSON dentro de un campo URLSearchParams.
     if (GOOGLE_SHEETS_URL) {
+      const payload = JSON.stringify({
+        nombre: nameVal,
+        acompanantes: companionsList,
+        asistencia: attendanceVal,
+        mensaje: messageVal
+      });
+      const params = new URLSearchParams();
+      params.append("payload", payload);
+
       fetch(GOOGLE_SHEETS_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nombre: nameVal,
-          celular: phoneVal,
-          asistencia: checkVal
-        })
-      }).catch((err) => console.warn("Error enviando a Google Sheets:", err));
+        body: params
+      }).then(() => {
+        // Mostrar pantalla de éxito
+        if (formSection) formSection.style.display = "none";
+        if (successSection) successSection.style.display = "block";
+        
+        if (submitBtn) submitBtn.innerHTML = originalBtnText;
+      }).catch((err) => {
+        console.warn("Error enviando a Google Sheets:", err);
+        if (submitBtn) submitBtn.innerHTML = originalBtnText;
+        alert("Hubo un error al enviar tu confirmación. Inténtalo nuevamente.");
+      });
     }
-
-    // Mostrar pantalla de éxito
-    if (formSection) formSection.style.display = "none";
-    if (successSection) successSection.style.display = "block";
   });
 }
 

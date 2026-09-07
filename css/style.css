@@ -94,13 +94,22 @@ section, header.hero-section {
 .venue-section,
 .itinerary-section,
 .rsvp-section,
-.cierre-section,
-.family-section {
+.cierre-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 5rem;
+  box-sizing: border-box;
+}
+
+/* Family section: igual que las demás, pantalla completa con scroll-snap */
+.family-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0;
   box-sizing: border-box;
 }
 
@@ -1752,152 +1761,110 @@ h4 {
 /* ==========================================================================
    Floating Music Player Component
    ========================================================================== */
+/* ==========================================================================
+   Floating Music Player — Círculo Premium
+   ========================================================================== */
 .music-player-floating {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 1.8rem;
+  right: 1.8rem;
   z-index: 9000;
-  width: auto;
-  background-color: color-mix(in oklab, var(--card) 60%, transparent);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
-  border-radius: 9999px;
-  box-shadow: 0 12px 32px -12px color-mix(in oklab, var(--lilac-deep) 60%, transparent);
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.music-floating-inner {
+  /* sin fondo, el botón es el contenedor */
+  background: none;
+  border: none;
+  padding: 0;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-}
-
-.music-cover-mini {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.music-cover-mini img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.music-info-mini {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  min-width: 6rem;
 }
 
-.music-title-mini {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  line-height: 1.1;
-  color: var(--lilac-deep);
-  white-space: nowrap;
-}
-
-.equalizer {
-  margin-top: 0.15rem;
-  display: flex;
-  align-items: flex-end;
-  gap: 2px;
-  height: 12px;
-}
-
-.eq-bar {
-  width: 2px;
-  border-radius: 9999px;
-  background-color: var(--lilac);
-  height: 4px;
-  opacity: 0.4;
-  transition: opacity 0.3s;
-}
-
-.music-player-floating.playing .eq-bar {
-  opacity: 1;
-  animation: eq 0.9s ease-in-out infinite;
-}
-
-.music-player-floating.playing .eq-0 {
-  animation-delay: 0s;
-}
-
-.music-player-floating.playing .eq-1 {
-  animation-delay: 0.15s;
-}
-
-.music-player-floating.playing .eq-2 {
-  animation-delay: 0.3s;
-}
-
-@keyframes eq {
-
-  0%,
-  100% {
-    height: 4px;
-  }
-
-  50% {
-    height: 12px;
-  }
-}
-
+/* Botón circular principal */
 .play-button-mini {
-  width: 2.25rem;
-  height: 2.25rem;
+  position: relative;
+  width: 3.6rem;
+  height: 3.6rem;
   border-radius: 50%;
-  background-color: var(--lilac);
-  color: var(--primary-foreground);
+  /* Foto de fondo con overlay lila bebé */
+  background-image:
+    linear-gradient(
+      135deg,
+      oklch(0.80 0.10 305 / 0.72) 0%,
+      oklch(0.65 0.12 300 / 0.80) 100%
+    ),
+    url('assets/fotos novios/_A748384.jpg');
+  background-size: cover;
+  background-position: center top;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0.5rem;
-  margin-right: 0.25rem;
-  transition: transform 0.2s, background-color 0.2s;
+  border: 2.5px solid oklch(0.90 0.06 305 / 0.7);
+  cursor: pointer;
+  box-shadow:
+    0 0 0 5px oklch(0.80 0.10 305 / 0.20),
+    0 8px 24px -6px oklch(0.55 0.14 300 / 0.45);
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease;
+  outline: none;
+  overflow: hidden;
 }
 
 .play-button-mini:hover {
-  background-color: var(--lilac-deep);
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow:
+    0 0 0 8px oklch(0.80 0.10 305 / 0.28),
+    0 12px 32px -8px oklch(0.55 0.14 300 / 0.6);
 }
 
-.progress-bar-mini {
-  height: 2px;
-  width: calc(100% - 1.5rem);
-  margin: 0.25rem auto 0;
-  border-radius: 9999px;
-  background-color: color-mix(in oklab, var(--lilac-soft) 80%, transparent);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.progress-bar-fill-mini {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.play-button:hover {
-  transform: scale(1.05);
-}
-
-.play-button:active {
+.play-button-mini:active {
   transform: scale(0.95);
 }
+
+/* Anillo de progreso SVG (superpuesto sobre el botón) */
+.music-progress-ring {
+  position: absolute;
+  inset: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.music-ring-track {
+  fill: none;
+  stroke: oklch(0.90 0.06 305 / 0.40);
+  stroke-width: 2.5;
+}
+
+.music-ring-fill {
+  fill: none;
+  stroke: oklch(0.99 0.01 305 / 0.9);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+/* Pulso animado cuando está reproduciendo */
+.music-player-floating.playing .play-button-mini {
+  animation: music-pulse 3s ease-in-out infinite;
+}
+
+@keyframes music-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 5px oklch(0.80 0.10 305 / 0.20),
+      0 8px 24px -6px oklch(0.55 0.14 300 / 0.45);
+  }
+  50% {
+    box-shadow:
+      0 0 0 10px oklch(0.80 0.10 305 / 0.30),
+      0 10px 28px -4px oklch(0.55 0.14 300 / 0.6);
+  }
+}
+
 
 /* ==========================================================================
    Photo Frame & Story Section
@@ -3703,7 +3670,8 @@ h4 {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 220px;
+  height: 30vh;
+  max-height: 240px;
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -3726,26 +3694,26 @@ h4 {
   mask-image: linear-gradient(to top, black 0%, transparent 100%);
 }
 
-/* Main content area */
-.family-section {
-  justify-content: space-between !important;
-  padding-bottom: 0 !important;
-}
+
 
 .family-content {
   position: relative;
   z-index: 3;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   max-width: 680px;
   margin: 0 auto;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .family-header {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
+  margin-top: -0.8rem;
 }
 
 .family-eyebrow {
@@ -3785,12 +3753,15 @@ h4 {
   align-items: flex-start;
   justify-content: center;
   gap: 0;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
+  width: 100%;
 }
 
 .family-col {
   flex: 1;
-  padding: 0 0.5rem;
+  padding: 0 0.4rem;
+  text-align: center;
+  min-width: 0;
 }
 
 .family-vline {
@@ -3802,25 +3773,26 @@ h4 {
 }
 
 .family-group {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
 }
 
 .family-label {
   font-family: var(--font-sans);
-  font-size: 0.60rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--lilac-deep);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
+  white-space: nowrap;
 }
 
 .family-name {
   font-family: var(--font-display);
   font-size: 0.95rem;
   color: var(--foreground);
-  line-height: 1.25;
-  margin-bottom: 0.2rem;
+  line-height: 1.3;
+  margin-bottom: 0.15rem;
 }
 
 .family-ornament-line {
@@ -3828,7 +3800,7 @@ h4 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin: 0.6rem auto;
+  margin: 0.35rem auto;
   max-width: 240px;
 }
 
@@ -3846,7 +3818,15 @@ h4 {
 
 @media (max-width: 480px) {
   .family-photo-strip {
-    height: 160px;
+    height: 26vh;
+    max-height: 200px;
+  }
+  .family-name {
+    font-size: 0.88rem;
+  }
+  .family-label {
+    font-size: 0.57rem;
+    letter-spacing: 0.14em;
   }
 }
 
@@ -4037,4 +4017,190 @@ h4 {
     filter: none !important;
     transition: none !important;
   }
+}
+
+/* --- Nuevos estilos para RSVP --- */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px dashed var(--primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  background-color: color-mix(in oklab, var(--primary) 10%, transparent);
+}
+
+.companion-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.3s ease;
+}
+.companion-input-group .form-field {
+  flex: 1;
+}
+.btn-remove-companion {
+  background: color-mix(in oklab, var(--destructive) 10%, transparent);
+  color: var(--destructive);
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.btn-remove-companion:hover {
+  background: var(--destructive);
+  color: white;
+}
+
+.custom-radio {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  flex-shrink: 0;
+}
+.custom-radio:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+.custom-radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* --- Botones de asistencia (Sí / No) estilo pill premium --- */
+.attendance-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.attendance-btn-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  /* ocultar los inputs de radio dentro del DOM */
+}
+.attendance-btn-group .attendance-radio {
+  display: none;
+}
+
+.attendance-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.15s ease;
+  user-select: none;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Estado por defecto — "ghost" elegante */
+.attendance-btn--yes {
+  background: color-mix(in oklab, var(--lilac) 10%, white);
+  color: var(--lilac-deep);
+  border: 1.5px solid color-mix(in oklab, var(--lilac) 50%, transparent);
+}
+.attendance-btn--no {
+  background: color-mix(in oklab, var(--destructive) 5%, white);
+  color: color-mix(in oklab, var(--destructive) 70%, var(--foreground));
+  border: 1.5px solid color-mix(in oklab, var(--destructive) 30%, transparent);
+}
+
+/* Estado activo — relleno premium */
+#rsvp-yes:checked ~ label.attendance-btn--yes,
+.attendance-btn--yes.active {
+  background: linear-gradient(135deg, var(--lilac) 0%, var(--lilac-deep) 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px -6px color-mix(in oklab, var(--lilac-deep) 55%, transparent);
+  transform: translateY(-1px);
+}
+#rsvp-no:checked ~ label.attendance-btn--no,
+.attendance-btn--no.active {
+  background: linear-gradient(135deg, oklch(0.65 0.18 27) 0%, oklch(0.50 0.20 27) 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px -6px oklch(0.65 0.18 27 / 0.4);
+  transform: translateY(-1px);
+}
+
+.attendance-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+.attendance-btn:active {
+  transform: translateY(0);
+}
+
+/* --- Encabezado del área de mensaje --- */
+.message-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--lilac-deep);
+  font-weight: 400;
+}
+.message-heart-icon {
+  color: var(--lilac);
+  flex-shrink: 0;
+}
+.message-subheading {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+/* --- Textarea de mensaje con tipografía mejorada --- */
+.message-textarea {
+  font-family: var(--font-sans) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.65 !important;
+  color: var(--foreground) !important;
+  resize: none;
+  min-height: 90px;
 }

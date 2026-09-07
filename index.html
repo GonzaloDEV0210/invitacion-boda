@@ -329,37 +329,26 @@
     </section>
 
 
-    <!-- Canción y Reproductor de Música (Flotante) -->
+    <!-- Reproductor de Música Flotante — Botón Circular Premium -->
     <div id="floating-music-player" class="music-player-floating">
-      <div class="music-floating-inner">
-        <div class="music-cover-mini">
-          <img src="assets/fotos novios/_A748384.jpg" alt="Portada" />
-        </div>
-        <div class="music-info-mini">
-          <p class="music-title-mini">Nuestra canción</p>
-          <div class="equalizer" aria-hidden="true">
-            <span class="eq-bar eq-0"></span>
-            <span class="eq-bar eq-1"></span>
-            <span class="eq-bar eq-2"></span>
-          </div>
-        </div>
-        <button type="button" id="btn-play-pause" class="play-button-mini" aria-label="Reproducir o pausar canción">
-          <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-            fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            style="margin-left: 2px;">
-            <polygon points="6 3 20 12 6 21 6 3" />
-          </svg>
-          <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-            fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            style="display: none;">
-            <rect x="6" y="4" width="4" height="16" />
-            <rect x="14" y="4" width="4" height="16" />
-          </svg>
-        </button>
-      </div>
-      <div id="progress-bar-wrap" class="progress-bar-mini" title="Avanzar o retroceder canción">
-        <span id="progress-bar-fill" class="progress-bar-fill-mini"></span>
-      </div>
+      <button type="button" id="btn-play-pause" class="play-button-mini" aria-label="Reproducir o pausar canción">
+        <!-- Anillo de progreso SVG -->
+        <svg class="music-progress-ring" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle class="music-ring-track" cx="28" cy="28" r="25" />
+          <circle id="music-ring-fill" class="music-ring-fill" cx="28" cy="28" r="25" />
+        </svg>
+        <!-- Icono Play -->
+        <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+          fill="currentColor" style="margin-left: 3px;">
+          <polygon points="6 3 20 12 6 21 6 3" />
+        </svg>
+        <!-- Icono Pause -->
+        <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+          fill="currentColor" style="display: none;">
+          <rect x="6" y="4" width="4" height="16" rx="1" />
+          <rect x="14" y="4" width="4" height="16" rx="1" />
+        </svg>
+      </button>
       <audio id="wedding-audio" src="assets/audio/Una Sola Carne   Canción Cristiana para Matrimonios y Parejas.mp3"
         preload="auto"></audio>
     </div>
@@ -772,15 +761,15 @@
 
 
         <!-- Cabecera -->
-        <div class="family-header text-center" data-reveal="up" style="margin-bottom: 1.5rem;">
-          <p style="font-family: var(--font-sans); font-size: 0.7rem; color: var(--lilac-deep); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">Con la bendición de Dios y de nuestros padres</p>
+        <div class="family-header text-center" data-reveal="up">
+          <p style="font-family: var(--font-sans); font-size: 0.72rem; color: var(--lilac-deep); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;">Con la bendición de Dios y de nuestros padres</p>
         </div>
 
         <!-- Grid 2x2 padres -->
         <div class="family-parents" data-reveal="up">
           <div class="family-col">
             <p class="family-label">Padres del novio</p>
-            <p class="family-name">Hernán Wilfredo Palma Mendoza</p>
+            <p class="family-name">Hernán Palma Mendoza</p>
             <p class="family-name">Marleny Rosas Santi</p>
           </div>
           <div class="family-vline" aria-hidden="true"></div>
@@ -818,7 +807,8 @@
           <div class="family-vline" aria-hidden="true"></div>
           <div class="family-col">
             <p class="family-label">Pastores</p>
-            <p class="family-name">Iván Galarza &amp; Luz Navarro</p>
+            <p class="family-name">Iván Galarza Huamán</p>
+            <p class="family-name">Luz Navarro Vidal</p>
           </div>
         </div>
 
@@ -872,7 +862,7 @@
     <!-- Regalos y Bendiciones -->
     <section class="regalos-section">
       <!-- Background Image & Veil -->
-      <img src="assets/fotos novios/_A748468.jpg" alt="" class="regalos-bg-img" aria-hidden="true" loading="lazy"/>
+      <img src="assets/fotos novios/_A748377.jpg" alt="" class="regalos-bg-img" aria-hidden="true" loading="lazy"/>
       <div class="regalos-bg-veil" aria-hidden="true"></div>
 
       <div class="regalos-inner text-center" data-reveal="up">
@@ -890,7 +880,7 @@
 
         <p class="itin-eyebrow" style="margin-top:1.2rem;">Con amor</p>
         <h2 class="regalos-title">Regalos y<br>Bendiciones</h2>
-        <p class="regalos-sub">Tu presencia es nuestro mayor regalo.<br>Si deseas hacernos un obsequio adicional,<br>aquí tienes los datos:</p>
+        <p class="regalos-sub">Tu presencia es nuestro mayor regalo.<br><br>Si deseas acompañarnos con un detalle, te dejamos nuestros datos con mucho cariño.</p>
 
         <button type="button" class="regalos-btn" data-modal-target="modal-gifts">
           <span class="regalos-btn-shimmer"></span>
@@ -900,7 +890,7 @@
             <path d="M12 8v13" />
             <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" />
           </svg>
-          Ver datos bancarios
+          Ver datos
         </button>
       </div>
     </section>
@@ -915,7 +905,7 @@
         <p class="rsvp-eyebrow">Reserva tu lugar</p>
         <h2 class="rsvp-title">Confirma tu Asistencia</h2>
         <div class="rsvp-title-line" aria-hidden="true"></div>
-        <p class="rsvp-subtitle">Por favor confirma tu presencia antes del<br><strong>10 de septiembre de 2026</strong></p>
+        <p class="rsvp-subtitle">Por favor confirma tu presencia antes del<br><strong>02 de Octubre de 2026</strong></p>
 
         <div class="rsvp-btn-wrap">
           <button type="button" class="btn-primary rsvp-trigger-btn" data-modal-target="modal-rsvp">
@@ -968,33 +958,64 @@
         <h3 id="rsvp-title" class="modal-title">Confirma tu asistencia</h3>
         <div class="modal-title-line" aria-hidden="true"></div>
         <p class="modal-subtitle">
-          Completa tus datos para registrar tu asistencia.
+          Completa tus datos para registrar tu asistencia. Si vienes acompañado, por favor agrega sus nombres.
         </p>
 
         <form id="rsvp-form" class="modal-form" novalidate>
           <!-- Nombres -->
           <div class="form-group text-left">
             <label for="rsvp-nombre" class="form-label">Nombres y Apellidos</label>
-            <input type="text" id="rsvp-nombre" class="form-field" placeholder="Ej. María Fernanda Rojas"
+            <input type="text" id="rsvp-nombre" class="form-field" placeholder="Escribe aquí"
               maxlength="100" />
             <p id="error-name" class="text-destructive form-error"></p>
           </div>
 
-          <!-- Celular -->
-          <div class="form-group text-left">
-            <label for="rsvp-tel" class="form-label">Número de Celular</label>
-            <input type="tel" id="rsvp-tel" class="form-field" placeholder="Ej. 999 888 777" maxlength="20"
-              inputmode="tel" />
-            <p id="error-phone" class="text-destructive form-error"></p>
+          <!-- Acompañantes Dinámicos -->
+          <div id="companions-container" class="form-group text-left" style="margin-bottom: 0;"></div>
+          <div class="form-group text-left" style="margin-top: -0.5rem; margin-bottom: 1.5rem;">
+            <button type="button" id="btn-add-companion" class="btn-secondary" style="width: 100%; font-size: 0.85rem; padding: 0.6rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/><path d="M12 5v14"/>
+              </svg>
+              Agregar 1 persona más
+            </button>
           </div>
 
-          <!-- Checkbox -->
-          <div class="form-group">
-            <label for="rsvp-check" class="form-checkbox-card">
-              <input type="checkbox" id="rsvp-check" class="custom-checkbox" />
-              <span class="checkbox-text">¡Sí, confirmo que asistiré a la boda! ✨</span>
-            </label>
-            <p id="error-check" class="text-destructive form-error"></p>
+          <!-- Asistencia (Botones Elegantes) -->
+          <div class="form-group text-left">
+            <label class="form-label" style="margin-bottom: 1rem; display: block; text-align: center; font-size: 0.9rem; letter-spacing: 0.05em;">¿Asistirás a la boda?</label>
+            <div class="attendance-btn-group">
+              <input type="radio" id="rsvp-yes" name="rsvp-attendance" value="yes" class="attendance-radio" />
+              <label for="rsvp-yes" class="attendance-btn attendance-btn--yes">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                <span>Sí, allá estaré</span>
+              </label>
+              <input type="radio" id="rsvp-no" name="rsvp-attendance" value="no" class="attendance-radio" />
+              <label for="rsvp-no" class="attendance-btn attendance-btn--no">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                </svg>
+                <span>No podré asistir</span>
+              </label>
+            </div>
+            <p id="error-check" class="text-destructive form-error" style="text-align:center; margin-top: 0.5rem;"></p>
+          </div>
+
+          <!-- Mensaje Opcional -->
+          <div class="form-group text-left">
+            <div class="message-heading">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="message-heart-icon">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+              <span>Déjanos tus palabras o felicitaciones</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="message-heart-icon">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <p class="message-subheading">Opcional — con mucho cariño lo leeremos</p>
+            <textarea id="rsvp-message" class="form-field message-textarea" placeholder="Escribe aquí..." rows="3"></textarea>
           </div>
 
           <!-- Botón Enviar -->
@@ -1145,15 +1166,33 @@
         </div>
       </div>
 
-      <!-- Billetera Digital (Plin) -->
+      <!-- Billetera Digital (Plin/Yape) -->
       <div class="wallet-single-wrap">
         <div class="wallet-card">
           <div class="wallet-card-header">
-            <p class="wallet-name">Código QR · Plin</p>
+            <p class="wallet-name">Código QR · Plin / Yape</p>
             <span class="wallet-holder-badge">Gonzalo Palma</span>
           </div>
           <div class="qr-container">
-            <img src="assets/regalos/plin gonzalo.jpeg" alt="Código QR Plin - Gonzalo Palma" loading="lazy" />
+            <img src="assets/regalos/plin gonzalo.jpeg" alt="Código QR - Gonzalo Palma" loading="lazy" />
+          </div>
+          <p class="wallet-note" style="font-family: var(--font-sans); font-size: 0.75rem; color: var(--muted-foreground); text-align: center; margin-top: -0.5rem; margin-bottom: 0.5rem; padding: 0 1rem; line-height: 1.4;">También puedes yapear a este QR o a este número:</p>
+          <div class="bank-row" style="margin-top: 0; padding-top: 0; border-top: none; justify-content: space-between; padding: 0 1.5rem 1.5rem 1.5rem;">
+            <div class="bank-data">
+              <p class="bank-field-value" style="font-size: 1.2rem; font-weight: 600; color: var(--foreground); letter-spacing: 1px;">946 462 941</p>
+            </div>
+            <button type="button" class="copy-btn" data-copy="946462941"
+              aria-label="Copiar número de celular" title="Copiar celular">
+              <svg class="icon-copy" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+              </svg>
+              <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
